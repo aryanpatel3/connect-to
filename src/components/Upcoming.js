@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Paper, CircularProgress, Container, Typography, Button } from '@material-ui/core';
-import GroupView from './GroupView';
-import Profile from './Profile';
-import Upcoming from './Upcoming';
-
+import { Paper, CircularProgress, Link, Container, Typography, Button } from '@material-ui/core';
+import Friend from './Friend';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		height: '100%',
@@ -24,25 +21,30 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		justifyContent: 'center',
 	},
-	box: {
+	paper: {
 		display: 'flex',
+		flexDirection: 'column',
 	},
 }));
 
-function Dashboard(props) {
+function Upcoming(props) {
 	const classes = useStyles();
 	// const history = useHistory();
 	const [loading, setLoading] = useState(true);
+	const [events, setEvents] = useState([
+		'https://zoom.ca//gettoknowpeople.com',
+		'https://yo.ca//gettoknowpeople.com',
+	]);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				// const res = await db.collection('friends').doc('67kBGHf5bDg45ZLm0Vs7').get();
+				// const res = await db.collection('events').doc('67kBGHf5bDg45ZLm0Vs7').get();
 
 				// let data = ['Not found'];
 
 				// if (res.exists) {
-				// 	data = res.data().friends;
+				// 	data = res.data().events;
 				// }
 
 				// setfriends(data);
@@ -62,13 +64,16 @@ function Dashboard(props) {
 					<CircularProgress />
 				</Container>
 			) : (
-				<Box className={classes.box}>
-					<GroupView></GroupView>
-					<Profile></Profile>
-					<Upcoming></Upcoming>
-				</Box>
+				<Paper elevation={0} className={classes.paper}>
+					<Typography variant="subtitle1" align="center" className={classes.type}>
+						Upcoming meetings
+					</Typography>
+					{events.map((event, key) => {
+						return <Link key={key}>{event}</Link>;
+					})}
+				</Paper>
 			)}
 		</Container>
 	);
 }
-export default Dashboard;
+export default Upcoming;

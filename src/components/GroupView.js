@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Paper, CircularProgress, Container, Typography, Button } from '@material-ui/core';
-import GroupView from './GroupView';
-import Profile from './Profile';
-import Upcoming from './Upcoming';
-
+import { Paper, CircularProgress, Container, Typography, Button } from '@material-ui/core';
+import Friend from './Friend';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		height: '100%',
@@ -24,15 +21,17 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		justifyContent: 'center',
 	},
-	box: {
-		display: 'flex',
-	},
 }));
 
-function Dashboard(props) {
+function GroupView(props) {
 	const classes = useStyles();
 	// const history = useHistory();
 	const [loading, setLoading] = useState(true);
+	const [friends, setFriends] = useState([
+		{ id: '3mM0jCRehyCMfiClrtJm', name: 'Aryan Patel' },
+		{ id: '3mM0jCRehyCMfiClrtJm', name: 'Aniket Kabra' },
+		{ id: '3mM0jCRehyCMfiClrtJm', name: 'Andrea Miranda' },
+	]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -62,13 +61,16 @@ function Dashboard(props) {
 					<CircularProgress />
 				</Container>
 			) : (
-				<Box className={classes.box}>
-					<GroupView></GroupView>
-					<Profile></Profile>
-					<Upcoming></Upcoming>
-				</Box>
+				<Paper elevation={0} className={classes.paper}>
+					<Typography variant="subtitle1" align="center" className={classes.type}>
+						Group Members
+					</Typography>
+					{friends.map((friend, key) => {
+						return <Friend friend={friend} key={key}></Friend>;
+					})}
+				</Paper>
 			)}
 		</Container>
 	);
 }
-export default Dashboard;
+export default GroupView;
