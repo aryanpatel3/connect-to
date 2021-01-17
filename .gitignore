@@ -28,5 +28,7 @@ yarn-error.log*
 .firebaserc
 firebase.json
 /src/firebase.js
+script.js
+big5Questions.json
 
 mykey.json
