@@ -14,7 +14,7 @@ const request = require('request');
 const headers = {
 	'Content-Type': 'application/json',
 	Authorization:
-		'Bearer ya29.a0AfH6SMBDQUJ1oEis3vnuFWlS-bTyQciJdcX_5GVr2UHoKdUxMzHJrS5GDJVoBDzGWPR_FlZnfmwlKMMJnz_I5ke6z1MF1tKuQZWV9vTcEQRTh2A0qI6bP5yDa5AOJn7eSp21FkIhMRR1YQ1U2pcfs40ix6h6VNT3C9tdPLwlIn0PvFrUQWr1',
+		'Bearer ya29.a0AfH6SMCKwxHITmrHXxNesAkN3FV-zienl8pn0GvKBRxd0b1OtdKxR7k8nTOwMfNrU4HvOSZOIVNast2a1Su4YEdKK-7DRWtGU5vnh563YejMqHG3gi8AuxwGUbFaeUwm-jywF1EWAI-VQcyZbJu_b0ERRHoWLm6LIj_d8nRHvU2i4Uf_TU1e',
 };
 // "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project."
 exports.predictPersonalityGroup = functions.https.onRequest(async (req, res) => {

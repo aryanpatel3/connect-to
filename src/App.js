@@ -6,7 +6,7 @@ import Auth from './core';
 
 // local components
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { Dashboard } from './components/Dashboard';
+import Dashboard from './components/Dashboard';
 import Form from './components/Form';
 import Home from './components/Home';
 class App extends React.Component {
