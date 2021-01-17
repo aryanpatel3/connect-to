@@ -63,6 +63,8 @@ class AuthProvider extends Component {
 			});
 	};
 
+	fillData = async () => {};
+
 	logOut = async () => {
 		return firebaseAppAuth.signOut().catch((error) => {
 			throw new Error(`We can't end your session!  Reason -> ${error.message}, Code -> ${error.code}`);
